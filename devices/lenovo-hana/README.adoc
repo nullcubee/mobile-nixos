@@ -1,7 +1,11 @@
-= Lenovo Chromebook Duet
+= Lenovo Chromebook C330
 include::_support/common.inc[]
 
 == Device-specific notes
+
+The GPU in the MT8173 is not supported in linux, so you are limited to software rendering only.
+
+There has been some progress in getting it supported, but it hasn't gotten very far yet.
 
 === Developer mode
 
