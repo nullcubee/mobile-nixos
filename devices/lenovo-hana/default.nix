@@ -18,6 +18,8 @@
     };
 
     supportLevel = "unsupported";
+
+    firmware = pkgs.callPackage ./firmware { };
   };
 
   mobile.hardware = {
@@ -31,6 +33,9 @@
 
   mobile.boot.stage-1 = {
     kernel.package = pkgs.callPackage ./kernel { };
+    firmware = [
+      config.mobile.device.firmware
+    ];
   };
 
   mobile.system.depthcharge.kpart = {
