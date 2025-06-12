@@ -29,6 +29,13 @@
     };
   };
 
+  mobile.boot.stage-1 = {
+    kernel.package = pkgs.callPackage ./kernel { };
+  };
+
+  mobile.system.depthcharge.kpart = {
+    dtbs = "${config.mobile.boot.stage-1.kernel.package}/dtbs/mediatek";
+  };
 
   # TODO: Not sure if this is needed
   mobile.kernel.structuredConfig = [

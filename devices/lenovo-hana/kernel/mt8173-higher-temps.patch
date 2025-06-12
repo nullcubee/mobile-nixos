@@ -1,0 +1,19 @@
+# https://github.com/hexdump0815/linux-mainline-mediatek-mt81xx-kernel/blob/a1662da2fbef3b3f00f42835f7162d2d0d852541/misc.cbm/patches/v6.6/mt8173-fix-mmc-order.patch
+diff --git a/arch/arm64/boot/dts/mediatek/mt8173-elm.dtsi b/arch/arm64/boot/dts/mediatek/mt8173-elm.dtsi
+index 44a0346133cd..33e3b7f64b3f 100644
+--- a/arch/arm64/boot/dts/mediatek/mt8173-elm.dtsi
++++ b/arch/arm64/boot/dts/mediatek/mt8173-elm.dtsi
+@@ -184,11 +184,11 @@
+ 	sustainable-power = <4500>; /* milliwatts */
+ 	trips {
+ 		threshold: trip-point0 {
+-			temperature = <60000>;
++			temperature = <70000>;
+ 		};
+ 
+ 		target: trip-point1 {
+-			temperature = <65000>;
++			temperature = <75000>;
+ 		};
+ 	};
+ };
