@@ -17,7 +17,7 @@
       manufacturer = "Lenovo";
     };
 
-    supportLevel = "unsupported";
+    supportLevel = "best-effort";
 
     firmware = pkgs.callPackage ./firmware { };
   };
