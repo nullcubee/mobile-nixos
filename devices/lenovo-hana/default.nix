@@ -27,7 +27,10 @@
   };
 
   mobile.boot.stage-1 = {
-    kernel.package = pkgs.callPackage ./kernel { };
+    kernel = {
+      modular = true;
+      useNixOSKernel = true;
+    };
     firmware = [ config.mobile.device.firmware ];
   };
 
@@ -45,5 +48,20 @@
         SERIO = yes;
       }
     )
+  ];
+
+  boot.kernelPatches = [
+    {
+      name = "mt8173-fix-mmc-order";
+      patch = ./kernel/mt8173-fix-mmc-order.patch;
+    }
+    {
+      name = "mt8173-fix-mmc1-speed";
+      patch = ./kernel/mt8173-fix-mmc1-speed.patch;
+    }
+    {
+      name = "mt8173-higher-temps";
+      patch = ./kernel/mt8173-higher-temps.patch;
+    }
   ];
 }
