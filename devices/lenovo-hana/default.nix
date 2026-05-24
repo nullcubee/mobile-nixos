@@ -1,9 +1,4 @@
-{
-  lib,
-  pkgs,
-  config,
-  ...
-}:
+{ pkgs, config, ... }:
 
 {
   imports = [
@@ -24,7 +19,7 @@
 
   mobile.hardware = {
     soc = "mediatek-mt8173";
-    ram = (1024 * 4);
+    ram = 1024 * 4;
     screen = {
       width = 1366;
       height = 768;
@@ -33,9 +28,7 @@
 
   mobile.boot.stage-1 = {
     kernel.package = pkgs.callPackage ./kernel { };
-    firmware = [
-      config.mobile.device.firmware
-    ];
+    firmware = [ config.mobile.device.firmware ];
   };
 
   mobile.system.depthcharge.kpart = {
